@@ -2,6 +2,7 @@ package news.androidtv.libs.player;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -26,4 +27,15 @@ public class WebPlayerClient extends WebViewClient {
             }
         }, 1000);
     }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        view.loadUrl(url); // 在当前的webview中跳转到新的url
+        //获取cookies
+        CookieManager cm = CookieManager.getInstance();
+        String cookies = cm.getCookie(url);
+        AbstractWebPlayer.sp.edit().putString("cook", cookies).apply();
+        return true;
+    }
+
 }

@@ -18,14 +18,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sample_youtube);
         mPlayer = ((YouTubePlayerView) findViewById(R.id.player_youtube));
-        mPlayer.loadVideo("kjEmkdrdRtI");
-        mPlayer.registerCallback(new TvPlayer.Callback() {
-            @Override
-            public void onCompleted() {
-                super.onCompleted();
-                mPlayer.loadVideo("kjEmkdrdRtI");
-            }
-        });
+        mPlayer.loadVideo(this,"kjEmkdrdRtI");
+//        mPlayer.registerCallback(new TvPlayer.Callback() {
+//            @Override
+//            public void onCompleted() {
+//                super.onCompleted();
+//                mPlayer.loadVideo("kjEmkdrdRtI");
+//            }
+//        });
 
     }
     @Override

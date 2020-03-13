@@ -59,10 +59,10 @@ public class YouTubePlayerView extends AbstractWebPlayer implements PlaybackCont
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public void loadVideo(String videoId) {
+    public void loadVideo(Context context, String videoId) {
         mVideoId = videoId;
 //        setVideoUrlTo("https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&html5=1");
-        setVideoUrlTo("https://www.youku.com/");
+        setVideoUrlTo(context, "https://www.youku.com/");
 
     }
 

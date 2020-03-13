@@ -1,6 +1,7 @@
 package news.androidtv.libs.player;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
@@ -8,12 +9,16 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Surface;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.google.android.media.tv.companionlibrary.TvPlayer;
 
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Nick on 10/27/2016.
@@ -23,6 +28,8 @@ public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
     private static final String TAG = AbstractWebPlayer.class.getSimpleName();
     private static boolean DEBUG = false;
     private static boolean LOG_ERROR = true;
+    public static SharedPreferences sp;
+    String cookies = "";
 
     private WebEventsListener mWebListener;
     private List<VideoEventsListener> mVideoListeners;
@@ -55,6 +62,15 @@ public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
 
     public void setLogError(boolean debug) {
         DEBUG = debug;
+    }
+
+    public void synCookies(Context context, String url) {
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+//        cookieManager.removeSessionCookie();//移除
+        cookieManager.setCookie(url, cookies);
+        CookieSyncManager.getInstance().sync();
     }
 
     private void initialize(Context context) {
@@ -97,9 +113,10 @@ public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
                 }
             }
 
-
-
         };
+
+        sp = context.getSharedPreferences("aaa", MODE_PRIVATE);
+
         getSettings().setJavaScriptEnabled(true);
         getSettings().setSupportZoom(false);
         getSettings().setSupportMultipleWindows(false);
@@ -127,7 +144,8 @@ public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
         return mWebListener;
     }
 
-    public void setVideoUrlTo(final String url) {
+    public void setVideoUrlTo(Context context, final String url) {
+        synCookies(context, sp.getString("cook", ""));
         if (DEBUG) {
             Log.d(TAG, "Loading URL " + url);
         }
