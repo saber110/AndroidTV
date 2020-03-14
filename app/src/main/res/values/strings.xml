@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">优酷</string>
+<!--    <string name="app_name">优酷</string>-->
+<!--    <string name="website_url">https://www.youku.com/</string>-->
+
+    <string name="app_name">腾讯视频</string>
+    <string name="website_url">https://v.qq.com/</string>
+
+<!--    <string name="app_name">爱奇艺</string>-->
+<!--    <string name="website_url">https://www.iqiyi.com/</string>-->
 </resources>

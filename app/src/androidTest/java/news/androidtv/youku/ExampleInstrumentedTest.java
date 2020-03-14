@@ -1,4 +1,4 @@
-package news.androidtv.qqplayer;
+package news.androidtv.youku;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

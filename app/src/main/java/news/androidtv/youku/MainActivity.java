@@ -1,10 +1,8 @@
-package news.androidtv.qqplayer;
+package news.androidtv.youku;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-
-import com.google.android.media.tv.companionlibrary.TvPlayer;
 
 import news.androidtv.libs.player.YouTubePlayerView;
 
@@ -18,7 +16,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sample_youtube);
         mPlayer = ((YouTubePlayerView) findViewById(R.id.player_youtube));
-        mPlayer.loadVideo(this,"kjEmkdrdRtI");
+        mPlayer.loadVideo(this,"kjEmkdrdRtI", getString(R.string.website_url));
 //        mPlayer.registerCallback(new TvPlayer.Callback() {
 //            @Override
 //            public void onCompleted() {

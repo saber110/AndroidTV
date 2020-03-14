@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="news.androidtv.qqplayer">
+    package="news.androidtv.youku">
 
     <application android:allowBackup="true"
         android:label="@string/app_name"
@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-            <activity android:name="news.androidtv.qqplayer.MainActivity"
+            <activity android:name="news.androidtv.youku.MainActivity"
                 android:exported="true">
                 <intent-filter>
                     <category android:name="android.intent.category.LAUNCHER" />
