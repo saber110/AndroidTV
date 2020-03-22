@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidTV.iml" filepath="$PROJECT_DIR$/AndroidTV.iml" group="AndroidTV" />
+      <module fileurl="file://$PROJECT_DIR$/app/AndroidTV-app.iml" filepath="$PROJECT_DIR$/app/AndroidTV-app.iml" group="AndroidTV/app" />
+      <module fileurl="file://$PROJECT_DIR$/player/AndroidTV-player.iml" filepath="$PROJECT_DIR$/player/AndroidTV-player.iml" group="AndroidTV/player" />
       <module fileurl="file://$PROJECT_DIR$/YouTube-Tv-Player.iml" filepath="$PROJECT_DIR$/YouTube-Tv-Player.iml" group="YouTube-Tv-Player" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="YouTube-Tv-Player/app" />
       <module fileurl="file://$PROJECT_DIR$/player/player.iml" filepath="$PROJECT_DIR$/player/player.iml" group="YouTube-Tv-Player/player" />

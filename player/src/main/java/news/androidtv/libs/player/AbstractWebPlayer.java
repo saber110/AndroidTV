@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Surface;
+import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
@@ -23,7 +24,7 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * Created by Nick on 10/27/2016.
  */
-public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
+public abstract class   AbstractWebPlayer extends WebView implements TvPlayer {
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2526.35 Safari/537.36";
     private static final String TAG = AbstractWebPlayer.class.getSimpleName();
     private static boolean DEBUG = false;
@@ -125,10 +126,12 @@ public abstract class AbstractWebPlayer extends WebView implements TvPlayer {
         getSettings().setUserAgentString(USER_AGENT); //Claim to be a desktop
         getSettings().setUseWideViewPort(true);  // auto adapt to screen
         getSettings().setLoadWithOverviewMode(true);
+        getSettings().setLoadsImagesAutomatically(true);    // load image after layout
         getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);  // make render grade high
         getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         getSettings().setDomStorageEnabled(true);
         setKeepScreenOn(true);
+        setLayerType(View.LAYER_TYPE_HARDWARE,null);  // accalerate for view rendering
     }
 
 
